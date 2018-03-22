@@ -1,0 +1,9 @@
+﻿{
+    "iis": {
+        "env": [
+            "this.one.is.a.num=1234",
+            "test:variable=another one",
+            "test-var=a variable"
+        ]
+    }
+}

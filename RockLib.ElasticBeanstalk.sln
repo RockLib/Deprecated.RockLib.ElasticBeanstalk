@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2009
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RockLib.ElasticBeanstalk", "RockLib.ElasticBeanstalk\RockLib.ElasticBeanstalk.csproj", "{E8BC04F6-A9EB-48C7-B620-F57AF49DC8C4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RockLib.ElasticBeanstalk.Tests", "RockLib.ElasticBeanstalk.Tests\RockLib.ElasticBeanstalk.Tests.csproj", "{1B955098-BD8D-4265-B86C-1249D65DEAA5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E8BC04F6-A9EB-48C7-B620-F57AF49DC8C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8BC04F6-A9EB-48C7-B620-F57AF49DC8C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8BC04F6-A9EB-48C7-B620-F57AF49DC8C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8BC04F6-A9EB-48C7-B620-F57AF49DC8C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B955098-BD8D-4265-B86C-1249D65DEAA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B955098-BD8D-4265-B86C-1249D65DEAA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B955098-BD8D-4265-B86C-1249D65DEAA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B955098-BD8D-4265-B86C-1249D65DEAA5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0093520D-61D3-4720-80E6-5757F2AC8C02}
+	EndGlobalSection
+EndGlobal
