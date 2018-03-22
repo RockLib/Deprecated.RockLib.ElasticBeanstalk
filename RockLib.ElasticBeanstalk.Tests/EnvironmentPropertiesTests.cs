@@ -69,6 +69,22 @@ public class Map
             pathValue.Should().Be(expectedPath);
         }
 
+        public class ButReadAllTextThrows
+        {
+            [Fact]
+            public void GetEnvironmentPropertiesIsNotCalled()
+            {
+                string rawValue = null;
+                bool fileExists(string path) => true;
+                string readAllText(string path) => throw new Exception();
+                IEnumerable<(string, string)> getEnvironmentProperties(string raw) =>
+                    (rawValue = raw) == rawValue ? Enumerable.Empty<(string, string)>() : null;
+                EnvironmentProperties.Map(
+                    "foo_path", fileExists, readAllText, getEnvironmentProperties, null);
+                rawValue.Should().BeNull();
+            }
+        }
+
         [Fact]
         public void PassesAllTextToGetEnvironmentProperties()
         {
@@ -119,7 +135,7 @@ public class Map
         }
 
         [Fact]
-        public void DoesNotCallGetEnvironmentProperties()
+        public void GetEnvironmentPropertiesIsNotCalled()
         {
             string rawValue = null;
             bool fileExists(string path) => false;
@@ -203,6 +219,17 @@ public class GetEnvironmentProperties
         }
     }
 
+    public class IfRawIsNotValidJson
+    {
+        [Fact]
+        public void NoPropertiesAreReturned()
+        {
+            var raw = "va7dq9,pf\04o123 { Dv$#Tmx \r\nasdvnklser\t asnjbdskldjk ``~~";
+            var actualProperties = EnvironmentProperties.GetEnvironmentProperties(raw);
+            actualProperties.Should().BeEmpty();
+        }
+    }
+
     public class IfTheJsonObjectDoesNotHaveAnIisProperty
     {
         [Fact]
@@ -281,6 +308,24 @@ public class GetEnvironmentProperties
         public void ItIsNotReturned()
         {
             var raw = @"{""iis"":{""env"":[""=bar"",""=qux""]}}";
+
+            var actualProperties = EnvironmentProperties.GetEnvironmentProperties(raw);
+            actualProperties.Should().BeEmpty();
+        }
+    }
+
+    public class IfAnEnvValueIsNotAString
+    {
+        [Theory]
+        [InlineData("null")]
+        [InlineData("{}")]
+        [InlineData("[]")]
+        [InlineData("123")]
+        [InlineData("123.45")]
+        [InlineData("true")]
+        public void ItIsNotReturned(string envValue)
+        {
+            var raw = $@"{{""iis"":{{""env"":[{envValue}]}}}}";
 
             var actualProperties = EnvironmentProperties.GetEnvironmentProperties(raw);
             actualProperties.Should().BeEmpty();

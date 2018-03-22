@@ -18,7 +18,7 @@ namespace RockLib.ElasticBeanstalk
         public const string ConfigurationPath = @"C:\Program Files\Amazon\ElasticBeanstalk\config\containerconfiguration";
 
         /// <summary>
-        /// Sets environment variables for the current proecess according to Elastic Beanstalk Environment
+        /// Sets environment variables for the current process according to Elastic Beanstalk Environment
         /// Properties.
         /// </summary>
         /// <remarks>
@@ -38,19 +38,27 @@ namespace RockLib.ElasticBeanstalk
             Action<string, string> setEnvironmentVariable)
         {
             if (fileExists(path))
-                foreach (var (variable, value) in getEnvironmentProperties(readAllText(path)))
+            {
+                string raw;
+                try { raw = readAllText(path); }
+                catch { return; }
+
+                foreach (var (variable, value) in getEnvironmentProperties(raw))
                     setEnvironmentVariable(variable, value);
+            }
         }
 
         internal static IEnumerable<(string, string)> GetEnvironmentProperties(string raw)
         {
-            dynamic json = JsonConvert.DeserializeObject(raw ?? "") as JObject;
+            dynamic json;
+            try { json = JsonConvert.DeserializeObject(raw) as JObject; }
+            catch { json = null; }
 
             if (json?.iis is JObject && json.iis.env is JArray array)
             {
-                return from kvp in array.Values<string>()
-                       let tokens = kvp.Split(new[] { '=' }, 2)
-                       where tokens.Length == 2 && tokens[0] != ""
+                return from item in array.Children().OfType<JValue>()
+                       let tokens = (item.Value as string)?.Split(new[] { '=' }, 2)
+                       where tokens != null && tokens.Length == 2 && tokens[0] != ""
                        select (tokens[0], tokens[1]);
             }
 
