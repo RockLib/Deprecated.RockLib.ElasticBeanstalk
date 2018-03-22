@@ -12,6 +12,8 @@
     <Description>Add Elastic Beanstalk Environment Properties to environment variables.</Description>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageReleaseNotes></PackageReleaseNotes>
+    <PackageProjectUrl>https://github.com/RockLib/RockLib.ElasticBeanstalk</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/RockLib/RockLib.ElasticBeanstalk/blob/master/LICENSE</PackageLicenseUrl>
     <Copyright>Copyright 2018 (c) Quicken Loans Corporation. All rights reserved.</Copyright>
     <PackageTags>Elastic Beanstalk Environment Properties Variables</PackageTags>
     <Version>0.0.1-alpha01</Version>
