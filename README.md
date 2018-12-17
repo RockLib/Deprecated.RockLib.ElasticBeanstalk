@@ -1,4 +1,4 @@
-# RockLib.ElasticBeanstalk [![Build status](https://ci.appveyor.com/api/projects/status/sh3rtao9xxu3whn4?svg=true)](https://ci.appveyor.com/project/bfriesen/rocklib-elasticbeanstalk)
+# RockLib.ElasticBeanstalk [![Build status](https://ci.appveyor.com/api/projects/status/8cx54p9g01xmow6a?svg=true)](https://ci.appveyor.com/project/RockLib/rocklib-elasticbeanstalk)
 
 ```powershell
 PM> Install-Package RockLib.ElasticBeanstalk
