@@ -6,7 +6,7 @@
 
   <PropertyGroup>
     <PackageId>RockLib.ElasticBeanstalk</PackageId>
-    <PackageVersion>1.0.4</PackageVersion>
+    <PackageVersion>1.0.5</PackageVersion>
     <Authors>RockLib</Authors>
     <Description>Add Elastic Beanstalk Environment Properties to environment variables.</Description>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
