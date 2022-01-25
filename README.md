@@ -1,4 +1,6 @@
-# RockLib.ElasticBeanstalk [![Build status](https://ci.appveyor.com/api/projects/status/8cx54p9g01xmow6a?svg=true)](https://ci.appveyor.com/project/RockLib/rocklib-elasticbeanstalk)
+AWS now supports retrieving the values of Environment Properties for .NET Core applications. [Environment Variables with .NET Core and Elastic Beanstalk](https://aws.amazon.com/blogs/developer/environment-variables-with-net-core-and-elastic-beanstalk/)
+
+# [DEPRECATED] RockLib.ElasticBeanstalk [![Build status](https://ci.appveyor.com/api/projects/status/8cx54p9g01xmow6a?svg=true)](https://ci.appveyor.com/project/RockLib/rocklib-elasticbeanstalk)
 
 ```powershell
 PM> Install-Package RockLib.ElasticBeanstalk
